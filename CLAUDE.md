@@ -17,7 +17,7 @@ Priority: a correct, runnable single-asset endpoint first. Then tests, README an
 
 - Python 3.12 managed by uv (`uv sync`, `uv run`).
 - FastAPI and uvicorn for the API, pandas for loading and aggregation, pyproj for coordinate transformation, pytest for tests.
-- One package `exposure/` with clear boundaries: `data.py` (load and clean), `geo.py` (CRS and nearest station), `metrics.py` (daily totals, wet days, worst 3-day window), `api.py` (FastAPI app). A CLI only if it is built.
+- One package `exposure/` with clear boundaries: `data.py` (load and clean), `geo.py` (CRS and nearest station), `metrics.py` (daily totals, wet days, worst 3-day window), `service.py` (join layer shared by the API and the CLI), `api.py` (FastAPI app), `cli.py` (CLI printing the same summary).
 - Everything precomputed in memory at startup. No database unless there is a concrete reason.
 
 ## Data handling rules
