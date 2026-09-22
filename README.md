@@ -26,6 +26,8 @@ or, with compose (same image, same port, plus a healthcheck on `/health`):
 
     docker compose up --build
 
+On a Docker install without the compose plugin, the standalone `docker-compose up --build` does the same.
+
 ## Endpoints
 
 | Method and path | What it returns |
@@ -43,18 +45,16 @@ Valid asset types: `residential`, `commercial`, `industrial`, `public`, `agricul
     curl "http://localhost:8000/portfolio/exposure?ids=A-200975,A-206420"
 
 Example single-asset response:
-<!-- TODO real numbers: paste the live response for A-200975 after merge -->
-
     {
       "asset_id": "A-200975",
       "address": "Lindevej 1",
       "asset_type": "industrial",
       "insured_value_dkk": 14707000,
-      "station": {"station_id": "DK1434", "station_name": "Station DK1434", "distance_m": 1234.5},
-      "wet_days": 12,
-      "worst_3day_mm": 88.4,
-      "worst_3day_start": "2025-11-14",
-      "worst_3day_end": "2025-11-16",
+      "station": {"station_id": "DK1469", "station_name": "Station DK1469", "distance_m": 10470.5},
+      "wet_days": 26,
+      "worst_3day_mm": 72.5,
+      "worst_3day_start": "2026-01-13",
+      "worst_3day_end": "2026-01-15",
       "period": {"start": "2025-01-01", "end": "2026-06-30", "days_observed": 546}
     }
 
