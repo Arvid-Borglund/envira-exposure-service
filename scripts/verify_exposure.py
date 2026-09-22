@@ -135,8 +135,9 @@ ALIASES = {  # (last path segment, substring the full dotted path must contain) 
 }
 
 
-TOLERANCE = {  # sphere vs UTM planar distance differ by the scale factor (< 0.1 %); mm are rounded to 1 dp
-    "distance_m": lambda got, want: abs(got - want) <= 0.002 * want,
+TOLERANCE = {  # haversine on a sphere underestimates east-west distances at 56 N by up to ~0.35 %
+    # (ellipsoid flattening); the UTM scale factor adds < 0.01 %. mm are rounded to 1 dp.
+    "distance_m": lambda got, want: abs(got - want) <= 0.005 * want,
     "worst_3day_mm": lambda got, want: abs(got - want) <= 0.05,
 }
 
